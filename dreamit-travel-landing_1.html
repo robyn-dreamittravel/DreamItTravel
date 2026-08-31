@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream It Travel - Curated Luxury Experiences</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1.5rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        header nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #8b7355;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            margin-left: 2.5rem;
+            text-decoration: none;
+            color: #555;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #8b7355;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="dots" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1200" height="600" fill="url(%23dots)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #d4af8f;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            background: #8b7355;
+            color: white;
+            padding: 1rem 3rem;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            margin-top: 2rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s, transform 0.2s;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .cta-button:hover {
+            background: #6b5345;
+            transform: translateY(-2px);
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            padding: 5rem 2rem;
+            background: #f9f7f4;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a2e;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* WHY CHOOSE US SECTION */
+        .why-us {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .why-us-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .why-us-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #1a1a2e;
+            font-weight: normal;
+        }
+
+        .why-us-text ul {
+            list-style: none;
+        }
+
+        .why-us-text li {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .why-us-text li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #8b7355;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .why-us-image {
+            height: 400px;
+            background: linear-gradient(135deg, #8b7355, #d4af8f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 8px;
+        }
+
+        /* GALLERY SECTION */
+        .gallery {
+            padding: 5rem 2rem;
+            background: #f9f7f4;
+        }
+
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            padding: 5rem 2rem;
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 2;
+        }
+
+        .contact-info a {
+            color: #d4af8f;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #fff;
+        }
+
+        .contact-icons {
+            margin-top: 2rem;
+            font-size: 1.5rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0f0f1e;
+            color: #888;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            nav a {
+                margin-left: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .why-us-content {
+                grid-template-columns: 1fr;
+            }
+
+            .why-us-image {
+                height: 300px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <nav>
+        <div class="logo">✈ DreamIt Travel</div>
+        <div>
+            <a href="#services">Services</a>
+            <a href="#why-us">Why Us</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>DREAM IT. BOOK IT. LIVE IT.</h1>
+        <p class="tagline">I don't just book trips; I curate experiences.</p>
+        <a href="#contact" class="cta-button">START YOUR JOURNEY</a>
+    </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="services" id="services">
+    <h2 class="section-title">My Services</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">🌍</div>
+            <h3>Custom Itineraries</h3>
+            <p>Personalized travel plans tailored to your interests, budget, and style. From adventure to relaxation, I design unforgettable journeys.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🏨</div>
+            <h3>Luxury Accommodations</h3>
+            <p>Handpicked hotels, resorts, and villas that match your preferences and provide exceptional experiences.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🎟️</div>
+            <h3>VIP Access</h3>
+            <p>Exclusive tours, private experiences, and priority access to events and attractions worldwide.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">✈️</div>
+            <h3>Flight Arrangements</h3>
+            <p>Best flight options, seamless bookings, and travel logistics coordinated with precision.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🚗</div>
+            <h3>Ground Transportation</h3>
+            <p>Private transfers, car rentals, and local transportation arranged for your convenience.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">📱</div>
+            <h3>24/7 Support</h3>
+            <p>Round-the-clock assistance before, during, and after your trip for complete peace of mind.</p>
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE US SECTION -->
+<section class="why-us" id="why-us">
+    <div class="why-us-content">
+        <div class="why-us-text">
+            <h2>Why Choose DreamIt Travel?</h2>
+            <ul>
+                <li>Expert local knowledge and insider connections worldwide</li>
+                <li>Personalized attention to every detail of your journey</li>
+                <li>Exclusive access to experiences you won't find online</li>
+                <li>Seamless coordination of all travel logistics</li>
+                <li>Competitive pricing through my direct partnerships</li>
+                <li>Dedicated support throughout your entire trip</li>
+                <li>Years of travel expertise and curated relationships</li>
+            </ul>
+        </div>
+        <div class="why-us-image">
+            Your Personalized Travel Experience Awaits
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY SECTION -->
+<section class="gallery" id="gallery">
+    <h2 class="section-title">Experiences & Inspirations</h2>
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="images/carnival.jpg" alt="Vibrant Carnival Culture">
+        </div>
+        <div class="gallery-item">
+            <img src="images/festival.jpg" alt="Festival Adventures & Local Celebrations">
+        </div>
+        <div class="gallery-item">
+            <img src="images/resort-pool.jpg" alt="Luxury Resort Paradise">
+        </div>
+        <div class="gallery-item">
+            <img src="images/cruise.jpg" alt="Luxury Cruise Experience">
+        </div>
+        <div class="gallery-item">
+            <img src="images/villa-pool.jpg" alt="Private Villa Escapes">
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact" id="contact">
+    <h2>Ready to Curate Your Dream Trip?</h2>
+    <div class="contact-info">
+        <p><strong>📞 Call or Text</strong></p>
+        <p><a href="tel:678-437-9388">678-437-9388</a></p>
+        
+        <p style="margin-top: 2rem;"><strong>✉️ Email</strong></p>
+        <p><a href="mailto:dreamittravel0@gmail.com">dreamittravel0@gmail.com</a></p>
+        
+        <p style="margin-top: 2rem;">Let's turn your travel dreams into unforgettable memories.</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 DreamIt Travel. All rights reserved. Curated experiences, delivered with passion.</p>
+</footer>
+
+</body>
+</html>
