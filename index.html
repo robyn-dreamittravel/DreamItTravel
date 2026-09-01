@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dream It Travel - Curated Luxury Experiences</title>
+    <title>DreamIt Travel - Luxury Travel Planning & Experiences</title>
     <style>
         * {
             margin: 0;
@@ -12,24 +12,25 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            color: #333;
+            font-family: 'Garamond', 'Georgia', serif;
+            color: #1a1a1a;
             line-height: 1.6;
-            overflow-x: hidden;
+            background: #000;
         }
 
+        /* HEADER/NAV */
         header {
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(0, 0, 0, 0.95);
             padding: 1.5rem 2rem;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #d4af8f;
         }
 
         header nav {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -37,272 +38,491 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: bold;
-            color: #8b7355;
-            letter-spacing: 2px;
+            color: #d4af8f;
+            letter-spacing: 3px;
         }
 
         nav a {
-            margin-left: 2.5rem;
+            margin-left: 2rem;
             text-decoration: none;
-            color: #555;
-            font-size: 0.95rem;
+            color: #fff;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
             transition: color 0.3s;
         }
 
         nav a:hover {
-            color: #8b7355;
+            color: #d4af8f;
         }
 
         /* HERO SECTION */
         .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            background: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(0,0,0,0.9) 100%), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding-top: 80px;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            margin-top: 60px;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="dots" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1200" height="600" fill="url(%23dots)"/></svg>');
-            opacity: 0.3;
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 900px;
+            max-width: 1000px;
             padding: 2rem;
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 1rem;
             font-weight: normal;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            line-height: 1.1;
         }
 
-        .hero .tagline {
-            font-size: 1.5rem;
-            margin: 2rem 0;
-            font-style: italic;
+        .hero .subtitle {
+            font-size: 1.3rem;
             color: #d4af8f;
-            font-weight: 300;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            font-style: italic;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .cta-button {
-            background: #8b7355;
-            color: white;
-            padding: 1rem 3rem;
-            font-size: 1rem;
+            background: #d4af8f;
+            color: #000;
+            padding: 1.2rem 2.5rem;
+            font-size: 0.95rem;
             border: none;
             cursor: pointer;
-            margin-top: 2rem;
             text-decoration: none;
             display: inline-block;
-            transition: background 0.3s, transform 0.2s;
-            letter-spacing: 1px;
-            font-weight: 500;
+            transition: all 0.3s;
+            letter-spacing: 2px;
+            font-weight: 600;
         }
 
         .cta-button:hover {
-            background: #6b5345;
-            transform: translateY(-2px);
+            background: #fff;
+            transform: translateY(-3px);
         }
 
-        /* SERVICES SECTION */
-        .services {
+        .cta-button-secondary {
+            background: transparent;
+            color: #d4af8f;
+            border: 2px solid #d4af8f;
+            padding: 1rem 2.5rem;
+        }
+
+        .cta-button-secondary:hover {
+            background: #d4af8f;
+            color: #000;
+        }
+
+        /* SECTIONS */
+        section {
             padding: 5rem 2rem;
-            background: #f9f7f4;
-            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #1a1a2e;
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
             font-weight: normal;
             letter-spacing: 2px;
         }
 
-        .services-grid {
-            max-width: 1200px;
-            margin: 0 auto;
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #d4af8f;
+            margin-bottom: 2.5rem;
+            font-style: italic;
+        }
+
+        /* WHY SECTION */
+        .why-us {
+            background: #fff;
+        }
+
+        .why-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2.5rem;
+            margin-top: 3rem;
         }
 
-        .service-card {
-            background: white;
-            padding: 2.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
+        .why-card {
+            padding: 2rem;
+            border-left: 3px solid #d4af8f;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
+        .why-card h3 {
+            font-size: 1.2rem;
             margin-bottom: 1rem;
+            color: #000;
+            letter-spacing: 1px;
         }
 
-        .service-card h3 {
+        .why-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* DESTINATIONS */
+        .destinations {
+            background: #f5f5f5;
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .destination-tile {
+            aspect-ratio: 4/3;
+            background-size: cover;
+            background-position: center;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .destination-tile::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);
+            z-index: 1;
+        }
+
+        .destination-tile > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .destination-tile:hover {
+            transform: scale(1.02);
+        }
+
+        .destination-tile h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+        }
+
+        .destination-tile p {
+            font-size: 0.9rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        /* TRAVEL YOUR WAY */
+        .travel-way {
+            background: #000;
+            color: white;
+        }
+
+        .travel-way .section-title {
+            color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-tile {
+            background: #1a1a1a;
+            padding: 2.5rem;
+            border-top: 2px solid #d4af8f;
+            transition: all 0.3s;
+        }
+
+        .service-tile:hover {
+            background: #242424;
+            transform: translateY(-5px);
+        }
+
+        .service-tile h3 {
             font-size: 1.3rem;
             margin-bottom: 1rem;
-            color: #1a1a2e;
-            font-weight: 600;
+            letter-spacing: 1px;
+            color: #d4af8f;
         }
 
-        .service-card p {
-            color: #666;
-            font-size: 0.95rem;
+        .service-tile p {
+            color: #aaa;
+            line-height: 1.8;
         }
 
-        /* WHY CHOOSE US SECTION */
-        .why-us {
-            padding: 5rem 2rem;
-            background: white;
+        /* DIFFERENCE SECTION */
+        .difference {
+            background: #fff;
         }
 
-        .why-us-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .difference-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
+            margin-top: 2rem;
         }
 
-        .why-us-text h2 {
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            color: #1a1a2e;
-            font-weight: normal;
-        }
-
-        .why-us-text ul {
-            list-style: none;
-        }
-
-        .why-us-text li {
-            font-size: 1rem;
+        .difference-text h3 {
+            font-size: 2rem;
             margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .difference-text p {
+            font-size: 1.05rem;
             color: #555;
-            padding-left: 2rem;
-            position: relative;
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
         }
 
-        .why-us-text li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #8b7355;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .why-us-image {
+        .difference-image {
             height: 400px;
-            background: linear-gradient(135deg, #8b7355, #d4af8f);
+            background-size: cover;
+            background-position: center;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-end;
             color: white;
             font-size: 1.2rem;
-            border-radius: 8px;
-        }
-
-        /* GALLERY SECTION */
-        .gallery {
-            padding: 5rem 2rem;
-            background: #f9f7f4;
-        }
-
-        .gallery-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .gallery-item {
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            aspect-ratio: 4/3;
-            cursor: pointer;
+            text-align: left;
+            padding: 2rem;
             position: relative;
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
+        .difference-image::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.05);
+        .difference-image span {
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+        }
+
+        /* FEATURED TRIPS */
+        .featured {
+            background: #f5f5f5;
+        }
+
+        .trips-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .trip-card {
+            background: white;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .trip-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .trip-content {
+            padding: 2rem;
+        }
+
+        .trip-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .trip-content p {
+            color: #888;
+            margin-bottom: 1.5rem;
+        }
+
+        .trip-content a {
+            color: #d4af8f;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* HOW IT WORKS */
+        .how-it-works {
+            background: #000;
+            color: white;
+        }
+
+        .how-it-works .section-title {
+            color: white;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            font-size: 2.5rem;
+            color: #d4af8f;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .step p {
+            font-size: 0.95rem;
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        /* CTA SECTION */
+        .ready {
+            background: #d4af8f;
+            color: #000;
+            text-align: center;
+        }
+
+        .ready .section-title {
+            color: #000;
+        }
+
+        .ready .section-subtitle {
+            color: #1a1a1a;
+        }
+
+        .ready p {
+            font-size: 1.1rem;
+            margin: 2rem 0;
+            line-height: 1.8;
         }
 
         /* CONTACT SECTION */
         .contact {
-            padding: 5rem 2rem;
-            background: #1a1a2e;
+            background: #000;
             color: white;
             text-align: center;
         }
 
         .contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            font-weight: normal;
+            font-size: 2rem;
+            margin-bottom: 2rem;
             letter-spacing: 2px;
         }
 
         .contact-info {
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-            line-height: 2;
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
         }
 
-        .contact-info a {
+        .contact-phone {
+            font-size: 2.2rem;
+            color: #d4af8f;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .contact-email {
+            font-size: 1.3rem;
+            color: #d4af8f;
+            margin-bottom: 2rem;
+        }
+
+        .contact-email a {
             color: #d4af8f;
             text-decoration: none;
             transition: color 0.3s;
         }
 
-        .contact-info a:hover {
+        .contact-email a:hover {
             color: #fff;
         }
 
-        .contact-icons {
+        .contact-tagline {
+            font-size: 1.2rem;
+            color: #999;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+
+        .social-links {
             margin-top: 2rem;
-            font-size: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .social-links a {
+            color: #d4af8f;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #fff;
         }
 
         /* FOOTER */
         footer {
-            background: #0f0f1e;
+            background: #0a0a0a;
             color: #888;
             text-align: center;
             padding: 2rem;
@@ -310,34 +530,52 @@
         }
 
         /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .why-cards,
+            .destinations-grid,
+            .services-grid,
+            .trips-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .difference-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.2rem;
-            }
-
-            nav a {
-                margin-left: 1.5rem;
-                font-size: 0.85rem;
             }
 
             .section-title {
                 font-size: 2rem;
             }
 
-            .why-us-content {
+            .why-cards,
+            .destinations-grid,
+            .services-grid,
+            .trips-grid,
+            .steps-grid {
                 grid-template-columns: 1fr;
             }
 
-            .why-us-image {
-                height: 300px;
+            nav a {
+                margin-left: 1rem;
+                font-size: 0.8rem;
             }
 
-            .gallery-grid {
-                grid-template-columns: 1fr;
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .contact-phone {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -347,11 +585,12 @@
 <!-- HEADER -->
 <header>
     <nav>
-        <div class="logo">✈ DreamIt Travel</div>
+        <div class="logo">✈ Dream It Travel</div>
         <div>
+            <a href="#why">Why Us</a>
+            <a href="#destinations">Destinations</a>
             <a href="#services">Services</a>
-            <a href="#why-us">Why Us</a>
-            <a href="#gallery">Gallery</a>
+            <a href="#trips">Trips</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -360,109 +599,222 @@
 <!-- HERO SECTION -->
 <section class="hero">
     <div class="hero-content">
-        <h1>DREAM IT. BOOK IT. LIVE IT.</h1>
-        <p class="tagline">I don't just book trips; I curate experiences.</p>
-        <a href="#contact" class="cta-button">START YOUR JOURNEY</a>
+        <h1>DREAM IT.<br>BOOK IT.<br>LIVE IT.</h1>
+        <p class="subtitle">Travel Beyond the Ordinary</p>
+        <p class="description">Whether you're planning a luxury getaway, group celebration, cruise, destination wedding, girls' trip, or bucket-list adventure, Dream It Travel takes the stress out of planning and turns your travel dreams into unforgettable experiences.</p>
+        <div class="hero-buttons">
+            <a href="#contact" class="cta-button">PLAN MY TRIP</a>
+            <a href="#trips" class="cta-button cta-button-secondary">EXPLORE TRIPS</a>
+        </div>
+        <p style="color: #999; margin-top: 2rem;">Let us take you global.</p>
     </div>
 </section>
 
-<!-- SERVICES SECTION -->
-<section class="services" id="services">
-    <h2 class="section-title">My Services</h2>
+<!-- WHY SECTION -->
+<section class="why-us" id="why">
+    <h2 class="section-title">🌍 WHY DREAM IT TRAVEL?</h2>
+    <h3 class="section-subtitle">You Dream It. We Curate It.</h3>
+    <p style="color: #555; font-size: 1.05rem; margin-bottom: 2rem;">Travel planning shouldn't feel like a second job. At Dream It Travel, we take the time to research the destinations, accommodations, excursions, transportation, and experiences that make your trip special. We don't just search for the cheapest option. We search for the RIGHT experience for you.</p>
+    
+    <div class="why-cards">
+        <div class="why-card">
+            <h3>✨ Personalized Travel Planning</h3>
+            <p>Your trip is designed around your vision, your budget, and your travel style.</p>
+        </div>
+        <div class="why-card">
+            <h3>🥂 Group Travel Specialists</h3>
+            <p>Birthday celebrations, girls' trips, family reunions, milestone vacations and more.</p>
+        </div>
+        <div class="why-card">
+            <h3>🚢 Cruise Experts</h3>
+            <p>From relaxing escapes to luxury cruising, we'll help you find the ship and itinerary that fit your goals.</p>
+        </div>
+    </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="destinations" id="destinations">
+    <h2 class="section-title">🗺️ WHERE WILL YOU DREAM NEXT?</h2>
+    <div class="destinations-grid">
+        <a href="#" class="destination-tile" style="background-image: url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80');">
+            <h3>🇬🇭 GHANA</h3>
+            <p>Accra • Kumasi • Culture • History • Adventure</p>
+        </a>
+        <a href="#" class="destination-tile" style="background-image: url('https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=800&q=80');">
+            <h3>🇬🇷 GREECE</h3>
+            <p>Athens • Santorini • Mykonos • Paradise</p>
+        </a>
+        <a href="#" class="destination-tile" style="background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80');">
+            <h3>🇦🇪 DUBAI</h3>
+            <p>Luxury • Shopping • Desert Adventures</p>
+        </a>
+        <a href="#" class="destination-tile" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80');">
+            <h3>🌴 CARIBBEAN</h3>
+            <p>Jamaica • Barbados • St. Maarten • Turks & Caicos</p>
+        </a>
+        <!-- Using carnival.jpg here to capture vibrant Caribbean/Group festival vibes -->
+        <a href="#" class="destination-tile" style="background-image: url('carnival.jpg');">
+            <h3>🎉 CARNIVAL & FESTIVALS</h3>
+            <p>Immersive Cultural Celebrations & Group Trips</p>
+        </a>
+        <a href="#contact" class="destination-tile" style="background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80');">
+            <h3>🌎 YOUR DREAM</h3>
+            <p>Tell us where you want to go.</p>
+        </a>
+    </div>
+</section>
+
+<!-- TRAVEL YOUR WAY -->
+<section class="travel-way" id="services">
+    <h2 class="section-title">💎 TRAVEL YOUR WAY</h2>
     <div class="services-grid">
-        <div class="service-card">
-            <div class="service-icon">🌍</div>
-            <h3>Custom Itineraries</h3>
-            <p>Personalized travel plans tailored to your interests, budget, and style. From adventure to relaxation, I design unforgettable journeys.</p>
+        <div class="service-tile">
+            <h3>GROUP TRAVEL</h3>
+            <p>Bring your people. We'll handle the details of your celebration or adventure.</p>
         </div>
-        <div class="service-card">
-            <div class="service-icon">🏨</div>
-            <h3>Luxury Accommodations</h3>
-            <p>Handpicked hotels, resorts, and villas that match your preferences and provide exceptional experiences.</p>
+        <div class="service-tile">
+            <h3>LUXURY TRAVEL</h3>
+            <p>Elevated stays. Exceptional experiences. Travel in style.</p>
         </div>
-        <div class="service-card">
-            <div class="service-icon">🎟️</div>
-            <h3>VIP Access</h3>
-            <p>Exclusive tours, private experiences, and priority access to events and attractions worldwide.</p>
+        <div class="service-tile">
+            <h3>CRUISES</h3>
+            <p>Let the journey become part of the vacation. Epic ocean adventures.</p>
         </div>
-        <div class="service-card">
-            <div class="service-icon">✈️</div>
-            <h3>Flight Arrangements</h3>
-            <p>Best flight options, seamless bookings, and travel logistics coordinated with precision.</p>
+        <div class="service-tile">
+            <h3>DESTINATION WEDDINGS</h3>
+            <p>Say "I do" somewhere unforgettable. We'll coordinate your perfect day.</p>
         </div>
-        <div class="service-card">
-            <div class="service-icon">🚗</div>
-            <h3>Ground Transportation</h3>
-            <p>Private transfers, car rentals, and local transportation arranged for your convenience.</p>
+        <div class="service-tile">
+            <h3>SOLO TRAVEL</h3>
+            <p>Your vacation. Your pace. Your adventure. Solo but never alone.</p>
         </div>
-        <div class="service-card">
-            <div class="service-icon">📱</div>
-            <h3>24/7 Support</h3>
-            <p>Round-the-clock assistance before, during, and after your trip for complete peace of mind.</p>
+        <div class="service-tile">
+            <h3>MILESTONE CELEBRATIONS</h3>
+            <p>Birthdays, anniversaries, reunions and bucket-list moments.</p>
         </div>
     </div>
 </section>
 
-<!-- WHY CHOOSE US SECTION -->
-<section class="why-us" id="why-us">
-    <div class="why-us-content">
-        <div class="why-us-text">
-            <h2>Why Choose DreamIt Travel?</h2>
-            <ul>
-                <li>Expert local knowledge and insider connections worldwide</li>
-                <li>Personalized attention to every detail of your journey</li>
-                <li>Exclusive access to experiences you won't find online</li>
-                <li>Seamless coordination of all travel logistics</li>
-                <li>Competitive pricing through my direct partnerships</li>
-                <li>Dedicated support throughout your entire trip</li>
-                <li>Years of travel expertise and curated relationships</li>
-            </ul>
+<!-- DIFFERENCE -->
+<section class="difference">
+    <h2 class="section-title">❤️ THE DREAMIT DIFFERENCE</h2>
+    <h3 class="section-subtitle">We're Not Expedia. We're Your Travel Concierge.</h3>
+    
+    <div class="difference-content">
+        <div class="difference-text">
+            <h3>Research takes time. Planning takes expertise. Your vacation deserves both.</h3>
+            <p>From the first conversation to the moment you return home, Dream It Travel is there to help coordinate the details and make your journey as seamless as possible.</p>
+            <p><strong>Your time is valuable. Let us do the research.</strong></p>
         </div>
-        <div class="why-us-image">
-            Your Personalized Travel Experience Awaits
+        <!-- Using villa-pool.jpg to highlight an exclusive villa/resort ambiance -->
+        <div class="difference-image" style="background-image: url('villa-pool.jpg');">
+            <span>Luxury isn't a destination.<br>It's the experience.</span>
         </div>
     </div>
 </section>
 
-<!-- GALLERY SECTION -->
-<section class="gallery" id="gallery">
-    <h2 class="section-title">Experiences & Inspirations</h2>
-    <div class="gallery-grid">
-        <div class="gallery-item">
-            <img src="images/carnival.jpg" alt="Vibrant Carnival Culture">
+<!-- FEATURED TRIPS -->
+<section class="featured" id="trips">
+    <h2 class="section-title">⭐ FEATURED TRIPS</h2>
+    <div class="trips-grid">
+        <div class="trip-card">
+            <!-- Using resort-pool.jpg for upscale resort group packages -->
+            <div class="trip-image" style="background-image: url('resort-pool.jpg');"></div>
+            <div class="trip-content">
+                <h3>Ghana: Accra & Kumasi</h3>
+                <p>Culture. History. Connection. Adventure.</p>
+                <a href="#contact">JOIN THE INTEREST LIST</a>
+            </div>
         </div>
-        <div class="gallery-item">
-            <img src="images/festival.jpg" alt="Festival Adventures & Local Celebrations">
+        <div class="trip-card">
+            <div class="trip-image" style="background-image: url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="trip-content">
+                <h3>Greece</h3>
+                <p>Athens • Santorini • Mykonos</p>
+                <a href="#contact">VIEW TRIP</a>
+            </div>
         </div>
-        <div class="gallery-item">
-            <img src="images/resort-pool.jpg" alt="Luxury Resort Paradise">
-        </div>
-        <div class="gallery-item">
-            <img src="images/cruise.jpg" alt="Luxury Cruise Experience">
-        </div>
-        <div class="gallery-item">
-            <img src="images/villa-pool.jpg" alt="Private Villa Escapes">
+        <div class="trip-card">
+            <!-- Using cruise.jpg for the cruise spotlight card -->
+            <div class="trip-image" style="background-image: url('cruise.jpg');"></div>
+            <div class="trip-content">
+                <h3>Upcoming Group Cruises</h3>
+                <p>Come Sail Away With Dream It Travel</p>
+                <a href="#contact">SEE UPCOMING TRIPS</a>
+            </div>
         </div>
     </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+    <h2 class="section-title">📋 HOW IT WORKS</h2>
+    <div class="steps-grid">
+        <div class="step">
+            <div class="step-number">01</div>
+            <h3>TELL US YOUR DREAM</h3>
+            <p>Complete our travel inquiry and tell us where you want to go, when you want to travel and what experience you're looking for.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">02</div>
+            <h3>WE DO THE RESEARCH</h3>
+            <p>We research the options and curate recommendations based on your needs.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">03</div>
+            <h3>YOU CHOOSE</h3>
+            <p>Review your options and select the experience that's right for you.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">04</div>
+            <h3>WE HANDLE THE DETAILS</h3>
+            <p>From accommodations to excursions and travel logistics, we'll bring your itinerary together.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">05</div>
+            <h3>YOU MAKE MEMORIES</h3>
+            <p>Pack your bags and get ready to Dream It. Travel It. Live It.</p>
+        </div>
+    </div>
+</section>
+
+<!-- READY SECTION -->
+<section class="ready">
+    <h2 class="section-title">💰 READY TO START PLANNING?</h2>
+    <h3 class="section-subtitle">Your Dream Vacation Starts Here</h3>
+    <p>Don't spend hours searching hundreds of websites.</p>
+    <p>Let a travel professional do the research and help you create a trip worth remembering.</p>
+    <a href="#contact" class="cta-button" style="background: #000; color: #d4af8f; border: 2px solid #d4af8f; margin-top: 1.5rem;">START MY TRAVEL REQUEST</a>
+    <p style="margin-top: 2rem; font-size: 0.9rem;">Research fees may apply. Travel protection is highly recommended.</p>
 </section>
 
 <!-- CONTACT SECTION -->
 <section class="contact" id="contact">
-    <h2>Ready to Curate Your Dream Trip?</h2>
+    <h2>DREAMIT TRAVEL</h2>
+    <p class="contact-tagline">Luxury isn't a destination. It's the experience.</p>
+    
     <div class="contact-info">
-        <p><strong>📞 Call or Text</strong></p>
-        <p><a href="tel:678-437-9388">678-437-9388</a></p>
+        <div class="contact-phone">678-437-9388</div>
+        <p style="color: #999;">Call or Text</p>
         
-        <p style="margin-top: 2rem;"><strong>✉️ Email</strong></p>
-        <p><a href="mailto:dreamittravel0@gmail.com">dreamittravel0@gmail.com</a></p>
-        
-        <p style="margin-top: 2rem;">Let's turn your travel dreams into unforgettable memories.</p>
+        <div class="contact-email" style="margin-top: 2rem;">
+            <a href="mailto:dreamittravel0@gmail.com">dreamittravel0@gmail.com</a>
+        </div>
+        <p style="color: #999;">Email</p>
+    </div>
+    
+    <p style="margin-top: 2.5rem; font-size: 1.1rem;">Let's turn your travel dreams into unforgettable memories.</p>
+    
+    <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
     </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <p>&copy; 2026 DreamIt Travel. All rights reserved. Curated experiences, delivered with passion.</p>
+    <p>&copy; 2026 DreamIt Travel. All rights reserved. | Luxury Travel Planning & Experiences</p>
+    <p style="margin-top: 0.5rem;">Travel Beyond the Ordinary.</p>
 </footer>
 
 </body>
